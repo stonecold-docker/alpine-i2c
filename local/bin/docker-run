@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -e
+
+[ -x /usr/local/bin/docker-binfmt ] && /usr/local/bin/docker-binfmt
+
+[ -x /usr/local/bin/docker-run-pre ] && /usr/local/bin/docker-run-pre
+
+[ -x /usr/local/bin/docker-bootstrap ] && /usr/local/bin/docker-bootstrap
+
+if [ -x /usr/local/bin/docker-run-alt ]; then
+	exec /usr/local/bin/docker-run-alt "${@}"
+else
+	if [ "${#}" = "0" ]; then
+		exec tail -f /dev/null
+	else
+		eval exec "$@"
+	fi
+fi
+
