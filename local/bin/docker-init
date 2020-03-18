@@ -2,9 +2,16 @@
 
 set -e
 
-if [ -z "$(grep testing /etc/apk/repositories)" ]; then
-	echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-fi
+echo "[$(TZ="GMT-9" date '+%Y-%m-%d %H:%M:%S')] ==> Installing required packages"
+PKG_LIB="i2c-tools python3 py3-pillow py3-smbus"
+PKG_DEV=""
+docker-install -r -u ${PKG_LIB} ${PKG_DEV}
+ln -sf /usr/bin/python3 /usr/local/bin/python
+echo "[$(TZ="GMT-9" date '+%Y-%m-%d %H:%M:%S')] ==> OK"
+echo
 
-docker-install -r -u -c i2c-tools
+echo "[$(TZ="GMT-9" date '+%Y-%m-%d %H:%M:%S')] ==> Uninstalling unnecessary packages"
+docker-install -d -c ${PKG_DEV}
+echo "[$(TZ="GMT-9" date '+%Y-%m-%d %H:%M:%S')] ==> OK"
+echo
 
