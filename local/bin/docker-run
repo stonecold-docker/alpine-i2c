@@ -16,7 +16,8 @@ else
 	if [ ! -z "${1}" -a "${1}" = "CLOCK" ]; then
 		CLOCK_TYPE="${CLOCK_TYPE:-1}"
 		if [ ! -z "${2}" ]; then
-		CLOCK_TYPE="${2}"
+			CLOCK_TYPE="${2}"
+		fi
 		exec /usr/local/bin/start_clock.sh
 	else
 		exec /bin/sh -l "${@}"
