@@ -1,0 +1,6 @@
+image: forumi0721/alpine-i2c:latest
+manifests:
+  - image: forumi0721/alpine-i2c:aarch64
+    platform:
+      architecture: arm64
+      os: linux
