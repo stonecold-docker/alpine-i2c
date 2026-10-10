@@ -2,8 +2,11 @@
 ![Docker Pulls](https://img.shields.io/docker/pulls/forumi0721/alpine-i2c)
 ![Docker Stars](https://img.shields.io/docker/stars/forumi0721/alpine-i2c)
 
-### aarch64
-![Docker Image Size](https://img.shields.io/docker/image-size/forumi0721/alpine-i2c/aarch64)
+
+
+----------------------------------------
+### arm64
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/forumi0721/alpine-i2c/latest?arch=arm64)
 
 
 
@@ -11,8 +14,8 @@
 #### Description
 
 * Distribution : [Alpine Linux](https://alpinelinux.org/)
-* Architecture : aarch64
-* Appplication : i2c
+* Architecture : arm64
+* Application : i2c
     - I²C (Inter-Integrated Circuit), pronounced I-squared-C, is a synchronous, multi-master, multi-slave, packet switched, single-ended, serial computer bus invented in 1982 by Philips Semiconductor (now NXP Semiconductors).
 
 
@@ -24,7 +27,7 @@
 docker run -i -t --rm \
            --privileged \
            --device=/dev/i2c-1 \
-           forumi0721/alpine-i2c:[ARCH_TAG]
+           forumi0721/alpine-i2c:latest
 ```
 
 
